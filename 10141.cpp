@@ -23,9 +23,39 @@ typedef vector<int> vi;
 
 int main()
 {
-   int n, p;
-   while(scanf("%d %d", &n, &p) != 0 && n && p)
+   int n, p, contrfp=0;
+   while(scanf("%d %d\n", &n, &p) != 0 && (n && p))
    {		
+	if(contrfp>0) cout << endl;
+     contrfp++;
+     int maxcompliance = -1;
+     double lowestprice = 10000000;
+     string bycompliance, byprice;
+     priority_queue< pair<int, pair< double, int> > > pq;
+     int cont = 0;
+      vector<string> table_proposal(p);
+     for(int ni = 0; ni < n; ni++)
+     {
+	string trash;
+	getline(cin, trash);
+     }
+     for(int pi = 0; pi < p; pi++)
+     {
+        string proposalmet;
+	getline(cin, proposalmet);
+	double price;
+        int rmet;
+	scanf("%lf %d\n", &price, &rmet);
+	table_proposal[pi] = proposalmet;
+	pq.push( make_pair( rmet, make_pair( -price, -pi) ) );
+        for(int rm = 0; rm < rmet; rm++)
+	{
+	  string trash;
+	  getline(cin, trash);
+	}
+     }
+	cout << "RFP #"<<contrfp << "\n"<< table_proposal[-1*pq.top().second.second] <<endl;
+//         cout << "RFP #" << contrfp << "\n"<< byprice<<endl;
    } 
    return 0;
 }
