@@ -7,7 +7,7 @@ void buildTree(int node, int L, int R)
    if( L == R ) 
 	treedata[node] = (Pirates[L]== '1')?1:0;
    return;
-   int left =node<<1;
+   int left = node<<1;
    int right = left+1;
     buildTree(left, L, (L+R)/2);
    //right
