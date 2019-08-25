@@ -2,18 +2,20 @@
 using namespace std;
 int main()
 {
-   int n, l, w;
-   while(scanf("%d %d %d\n", &n, &l, &w)!= EOF)
+   int n, l;
+   double w;
+   while(scanf("%d %d %lf\n", &n, &l, &w)!= EOF)
    {
-	int cont = 1;
+	int cont = 0;
+	w /=2.0;
 	priority_queue< pair< double, double> > pq;
 	for(int i = 0; i < n; i++)
 	{
 		int c, r;
 		scanf("%d %d\n", &c, &r);
-		if( r*r  - ( (w*w)/4.0 ) < 0) continue;
-		double half =  sqrt(r*r  - ( (w*w)/4.0  ));
-		double start = max(0.0, c-half);
+		if((double)r <= w ) continue;
+		double half =  sqrt((double)r*r  - ( (w*w)  ));
+		double start = c-half;
 		double end = c+half;
 		pq.push(make_pair(  -start,  end));
 	}
@@ -22,19 +24,14 @@ int main()
            printf("-1\n");
 	   continue;
 	}
-	double Start1 = -pq.top().first;
-	double End1 = pq.top().second;
-	pq.pop();
-	if(Start1 > 0) 
-	{
-	   printf("-1\n");
-	   continue;
-	}
+	double End1 = 0.0;//pq.top().second;
+	
 	while(!pq.empty() && End1 < l)
 	{
            double currentStart = -pq.top().first;
 	   double currentEnd = pq.top().second;
-	   double bestEnd = End1;
+	   double bestEnd = 0;
+	   if( currentStart > End1) break;
 	   while(!pq.empty() && currentStart <= End1)
 	   {
 	      if( currentEnd > bestEnd )
@@ -45,18 +42,12 @@ int main()
 	      currentStart = -pq.top().first;
 	      currentEnd = pq.top().second;
 	   } 
-	   if( bestEnd > End1 )
-	   {
 	      End1 = bestEnd;
 	      cont++;	
-	   }
-	   else if( bestEnd == End1) 
-	   {
-	           cont=-1;
-	           break;
-	   }
 	}
-	if(End1 < l) cont=-1;
+	if(End1 < l)
+	printf("-1\n");
+	else
 	printf("%d\n", cont);
    }
 }

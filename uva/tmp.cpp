@@ -1,66 +1,68 @@
 #include <iostream>
-#include <vector>
+#include <cstdio>
 #include <algorithm>
 #include <cmath>
 using namespace std;
 
-struct Interval
-{
-    double L, R;
-};
+#define MAX_SIZE 10000
 
-bool comp(const Interval &i1, const Interval &i2)
+struct Sprinkler
 {
-    return i1.L < i2.L;
+	double left;
+	double right;
+	bool operator <(const Sprinkler &s) const
+	{
+		return left <s.left;
+	}
+}sprinklers[MAX_SIZE+5];
+
+int WaterTheGrass(int m, int l)
+{
+	double rightmost = 0.0;
+	int count = 0;
+	int i, j;
+	for (i = 0; i <m; i = j)
+	{
+		if (sprinklers[i].left > rightmost) break;
+		for (j = i+1; j <m && sprinklers[j].left <= rightmost; ++j)
+		{
+			if (sprinklers[j].right > sprinklers[i].right)
+			{
+				i = j;
+			}
+		}
+		++count;
+		rightmost = sprinklers[i].right;
+		if (rightmost >= l) break;
+	}
+	if (rightmost >= l)
+	{
+		return count;
+	}
+	return -1;
 }
 
-int main()
-{  
-    size_t n, l, w;
-    while (cin >> n >> l >> w)
-    {
-        vector<Interval> circles(1);
-        for (size_t i = 0; i < n; ++i)
-        {
-            double pos, radius;
-            cin >> pos >> radius;
-            // Calculate this circle's effective interval [L, R].
-            // Then this problem is identical to 10020 - Minimal coverage.
-            double range = sqrt(radius * radius - (w / 2.0) * (w / 2.0));
-            circles[0].L = pos - range;
-            circles[0].R = pos + range;
-            circles.push_back(circles[0]);
-        }
-        // Sort the circles by increasing left endpoint. 
-        sort(circles.begin() + 1, circles.end(), comp);
-
-        double curL = 0, rReach = 0;
-        size_t i = 1;
-        size_t nSprinklers = 0; 
-        while (rReach < l)
-        {
-            double newCurL = curL;
-            size_t farthest = 0;
-            // Take the interval that covers as far right as possible.
-            for (; i < circles.size(); ++i)
-            {
-                if (circles[i].L > curL)
-                    break;
-                if (circles[i].R >= newCurL)
-                {
-                    newCurL = circles[i].R;
-                    farthest = i;
-                }
-            }
-            if (farthest == 0)
-                break;
-            ++nSprinklers;
-            rReach = curL = newCurL;
-        }
-        if (rReach < l)
-            cout << "-1" << endl;
-        else
-            cout << nSprinklers << endl;
-    }
-    return 0;
+int main(void)
+{
+	int n, l;
+	double w;
+	while (cin >> n >> l >> w)
+	{
+		w /= 2.0;
+		int i, m = 0;
+		for (i = 0; i <n; ++i)
+		{
+			int p, r;
+			scanf("%d%d", &p, &r);
+			if (r > w)
+			{
+				double halfCoveredLen = sqrt((double)r*r - w*w);	//Attention to double, wrong several times...
+				sprinklers[m].left = (double)p - halfCoveredLen;
+				sprinklers[m++].right = (double)p + halfCoveredLen;
+			}
+		}
+		sort(sprinklers, sprinklers+m);
+		cout <<WaterTheGrass(m, l) <<endl;
+	}
+	return 0;
 }
