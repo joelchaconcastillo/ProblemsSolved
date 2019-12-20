@@ -12,21 +12,11 @@ int main()
       {
 	cin >> data[i];
       }
-	minb = min(data[0], minb);
-	maxb = max(data[0], maxb);
-	for(int i = 1; i  < C-1; i++)
+	data[C] = A;
+	for(int i = 0; i  < C; i++)
 	{
-	   maxb = max(maxb, data[i]);
-	   minb = min(minb, data[i]);
-	   if( (data[i-1] < data[i] && data[i] > data[i+1]) )
-	   {
-	      totalsum += maxb-minb;
-//	      cout << minb << "-"<<maxb<<endl;
-	      maxb = minb = data[i];
-	   }
-       }
-	totalsum +=  A-minb;
-      
+	  totalsum += max(0, data[i+1]-data[i]);
+        }
       cout << totalsum <<endl;
    }
 }
