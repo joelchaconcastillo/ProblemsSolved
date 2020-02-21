@@ -1,348 +1,256 @@
-346
--
--14986
--14968
--14954
--14919
--14902
--14878
--14746
--14726
--14707
--14688
--14678
--14626
--14498
--14488
--14384
--14345
--14274
--14204
--14101
--14097
--14076
--13926
--13833
--13794
--13714
--13402
--13364
--13329
--13168
--13092
--13049
--13037
--12806
--12789
--12554
--12374
--12127
--11936
--11852
--11821
--11577
--11542
--11420
--11291
--11134
--11023
--10916
--10845
--10806
--10801
--10778
--10671
--10656
--10598
--10591
--10582
--10472
--10274
--10202
--10135
--10004
--9863
--9728
--9596
--9448
--9425
--9370
--9335
--9212
--9103
--8994
--8937
--8862
--8673
--8596
--8481
--8430
--8381
--8268
--8192
--8166
--8044
--8030
--7741
--7732
--7591
--7540
--7534
--7353
--7261
--7057
--6909
--6881
--6861
--6788
--6759
--6683
--6645
--6612
--6566
--6426
--6185
--6161
--6145
--6056
--6015
--5879
--5832
--5811
--5759
--5714
--5675
--5655
--5654
--5617
--5548
--5540
--5535
--5409
--5292
--5229
--5215
--5165
--4874
--4766
--4722
--4697
--4658
--4617
--4370
--4294
--4101
--3982
--3894
--3779
--3717
--3616
--3536
--3465
--3316
--3287
--3264
--3180
--3108
--3057
--3046
--2889
--2861
--2787
--2720
--2691
--2621
--2398
--2352
--2257
--2213
--2165
--2109
--1946
--1851
--1774
--1633
--1600
--1535
--1520
--1480
--1351
--1262
--1253
--1236
--1137
--1136
--743
--740
--718
--626
--572
-831
-838
-842
-896
-906
-973
-1104
-1182
-1289
-1341
-1404
-1536
-1671
-1913
-1985
-2016
-2199
-2207
-2447
-2599
-2921
-2943
-2980
-3031
-3042
-3062
-3085
-3106
-3262
-3324
-3350
-3438
-3484
-3504
-3545
-3588
-3606
-3626
-3635
-3659
-3850
-3854
-4019
-4071
-4098
-4102
-4153
-4177
-4211
-4230
-4264
-4287
-4479
-4550
-4667
-4999
-5190
-5235
-5305
-5317
-5361
-5407
-5437
-5481
-5628
-5683
-5703
-5728
-5818
-5875
-5994
-6064
-6107
-6249
-6329
-6417
-6475
-6890
-6985
-7009
-7056
-7067
-7196
-7247
-7350
-7397
-7489
-7530
-7659
-7712
-7911
-7921
-8321
-8365
-8402
-8544
-8578
-8652
-8676
-8765
-8770
-8981
-9042
-9081
-9218
-9249
-9329
-9383
-9431
-9502
-9514
-9569
-9616
-9660
-9748
-10134
-10153
-10199
-10260
-10285
-10450
-10451
-10471
-10548
-10634
-10638
-10657
-10797
-10809
-10879
-10890
-11075
-11141
-11298
-11508
-11628
-11755
-11807
-11881
-11929
-12056
-12154
-12348
-12705
-12712
-12720
-12833
-12949
-13002
-13036
-13149
-13157
-13250
-13263
-13347
-13365
-13545
-13694
-13727
-13728
-13814
-13816
-13859
-14186
-14268
-14525
-14679
-14804
-14887
+Optimal train swapping takes 400 swaps.
+Optimal train swapping takes 9 swaps.
+Optimal train swapping takes 550 swaps.
+Optimal train swapping takes 180 swaps.
+Optimal train swapping takes 161 swaps.
+Optimal train swapping takes 177 swaps.
+Optimal train swapping takes 298 swaps.
+Optimal train swapping takes 282 swaps.
+Optimal train swapping takes 2 swaps.
+Optimal train swapping takes 2 swaps.
+Optimal train swapping takes 460 swaps.
+Optimal train swapping takes 28 swaps.
+Optimal train swapping takes 12 swaps.
+Optimal train swapping takes 71 swaps.
+Optimal train swapping takes 355 swaps.
+Optimal train swapping takes 18 swaps.
+Optimal train swapping takes 152 swaps.
+Optimal train swapping takes 95 swaps.
+Optimal train swapping takes 30 swaps.
+Optimal train swapping takes 120 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 74 swaps.
+Optimal train swapping takes 164 swaps.
+Optimal train swapping takes 240 swaps.
+Optimal train swapping takes 281 swaps.
+Optimal train swapping takes 221 swaps.
+Optimal train swapping takes 30 swaps.
+Optimal train swapping takes 186 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 304 swaps.
+Optimal train swapping takes 139 swaps.
+Optimal train swapping takes 7 swaps.
+Optimal train swapping takes 554 swaps.
+Optimal train swapping takes 11 swaps.
+Optimal train swapping takes 542 swaps.
+Optimal train swapping takes 264 swaps.
+Optimal train swapping takes 86 swaps.
+Optimal train swapping takes 255 swaps.
+Optimal train swapping takes 326 swaps.
+Optimal train swapping takes 325 swaps.
+Optimal train swapping takes 182 swaps.
+Optimal train swapping takes 336 swaps.
+Optimal train swapping takes 52 swaps.
+Optimal train swapping takes 3 swaps.
+Optimal train swapping takes 519 swaps.
+Optimal train swapping takes 86 swaps.
+Optimal train swapping takes 614 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 424 swaps.
+Optimal train swapping takes 527 swaps.
+Optimal train swapping takes 61 swaps.
+Optimal train swapping takes 10 swaps.
+Optimal train swapping takes 444 swaps.
+Optimal train swapping takes 568 swaps.
+Optimal train swapping takes 57 swaps.
+Optimal train swapping takes 459 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 138 swaps.
+Optimal train swapping takes 213 swaps.
+Optimal train swapping takes 487 swaps.
+Optimal train swapping takes 91 swaps.
+Optimal train swapping takes 234 swaps.
+Optimal train swapping takes 11 swaps.
+Optimal train swapping takes 133 swaps.
+Optimal train swapping takes 419 swaps.
+Optimal train swapping takes 62 swaps.
+Optimal train swapping takes 71 swaps.
+Optimal train swapping takes 278 swaps.
+Optimal train swapping takes 44 swaps.
+Optimal train swapping takes 106 swaps.
+Optimal train swapping takes 164 swaps.
+Optimal train swapping takes 116 swaps.
+Optimal train swapping takes 327 swaps.
+Optimal train swapping takes 28 swaps.
+Optimal train swapping takes 649 swaps.
+Optimal train swapping takes 137 swaps.
+Optimal train swapping takes 130 swaps.
+Optimal train swapping takes 125 swaps.
+Optimal train swapping takes 36 swaps.
+Optimal train swapping takes 58 swaps.
+Optimal train swapping takes 10 swaps.
+Optimal train swapping takes 325 swaps.
+Optimal train swapping takes 9 swaps.
+Optimal train swapping takes 161 swaps.
+Optimal train swapping takes 70 swaps.
+Optimal train swapping takes 214 swaps.
+Optimal train swapping takes 22 swaps.
+Optimal train swapping takes 84 swaps.
+Optimal train swapping takes 115 swaps.
+Optimal train swapping takes 309 swaps.
+Optimal train swapping takes 207 swaps.
+Optimal train swapping takes 654 swaps.
+Optimal train swapping takes 43 swaps.
+Optimal train swapping takes 470 swaps.
+Optimal train swapping takes 243 swaps.
+Optimal train swapping takes 40 swaps.
+Optimal train swapping takes 159 swaps.
+Optimal train swapping takes 463 swaps.
+Optimal train swapping takes 354 swaps.
+Optimal train swapping takes 31 swaps.
+Optimal train swapping takes 508 swaps.
+Optimal train swapping takes 570 swaps.
+Optimal train swapping takes 232 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 9 swaps.
+Optimal train swapping takes 191 swaps.
+Optimal train swapping takes 96 swaps.
+Optimal train swapping takes 67 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 151 swaps.
+Optimal train swapping takes 347 swaps.
+Optimal train swapping takes 113 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 213 swaps.
+Optimal train swapping takes 524 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 319 swaps.
+Optimal train swapping takes 27 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 413 swaps.
+Optimal train swapping takes 17 swaps.
+Optimal train swapping takes 214 swaps.
+Optimal train swapping takes 51 swaps.
+Optimal train swapping takes 45 swaps.
+Optimal train swapping takes 28 swaps.
+Optimal train swapping takes 179 swaps.
+Optimal train swapping takes 4 swaps.
+Optimal train swapping takes 274 swaps.
+Optimal train swapping takes 60 swaps.
+Optimal train swapping takes 20 swaps.
+Optimal train swapping takes 3 swaps.
+Optimal train swapping takes 355 swaps.
+Optimal train swapping takes 184 swaps.
+Optimal train swapping takes 495 swaps.
+Optimal train swapping takes 377 swaps.
+Optimal train swapping takes 557 swaps.
+Optimal train swapping takes 398 swaps.
+Optimal train swapping takes 490 swaps.
+Optimal train swapping takes 157 swaps.
+Optimal train swapping takes 6 swaps.
+Optimal train swapping takes 22 swaps.
+Optimal train swapping takes 85 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 232 swaps.
+Optimal train swapping takes 499 swaps.
+Optimal train swapping takes 174 swaps.
+Optimal train swapping takes 93 swaps.
+Optimal train swapping takes 520 swaps.
+Optimal train swapping takes 22 swaps.
+Optimal train swapping takes 56 swaps.
+Optimal train swapping takes 386 swaps.
+Optimal train swapping takes 42 swaps.
+Optimal train swapping takes 465 swaps.
+Optimal train swapping takes 468 swaps.
+Optimal train swapping takes 575 swaps.
+Optimal train swapping takes 258 swaps.
+Optimal train swapping takes 539 swaps.
+Optimal train swapping takes 121 swaps.
+Optimal train swapping takes 15 swaps.
+Optimal train swapping takes 615 swaps.
+Optimal train swapping takes 348 swaps.
+Optimal train swapping takes 2 swaps.
+Optimal train swapping takes 3 swaps.
+Optimal train swapping takes 15 swaps.
+Optimal train swapping takes 219 swaps.
+Optimal train swapping takes 61 swaps.
+Optimal train swapping takes 140 swaps.
+Optimal train swapping takes 578 swaps.
+Optimal train swapping takes 386 swaps.
+Optimal train swapping takes 140 swaps.
+Optimal train swapping takes 116 swaps.
+Optimal train swapping takes 181 swaps.
+Optimal train swapping takes 68 swaps.
+Optimal train swapping takes 130 swaps.
+Optimal train swapping takes 125 swaps.
+Optimal train swapping takes 111 swaps.
+Optimal train swapping takes 195 swaps.
+Optimal train swapping takes 414 swaps.
+Optimal train swapping takes 79 swaps.
+Optimal train swapping takes 396 swaps.
+Optimal train swapping takes 38 swaps.
+Optimal train swapping takes 6 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 44 swaps.
+Optimal train swapping takes 472 swaps.
+Optimal train swapping takes 94 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 303 swaps.
+Optimal train swapping takes 64 swaps.
+Optimal train swapping takes 62 swaps.
+Optimal train swapping takes 412 swaps.
+Optimal train swapping takes 29 swaps.
+Optimal train swapping takes 16 swaps.
+Optimal train swapping takes 8 swaps.
+Optimal train swapping takes 46 swaps.
+Optimal train swapping takes 528 swaps.
+Optimal train swapping takes 741 swaps.
+Optimal train swapping takes 35 swaps.
+Optimal train swapping takes 342 swaps.
+Optimal train swapping takes 94 swaps.
+Optimal train swapping takes 271 swaps.
+Optimal train swapping takes 320 swaps.
+Optimal train swapping takes 26 swaps.
+Optimal train swapping takes 285 swaps.
+Optimal train swapping takes 72 swaps.
+Optimal train swapping takes 138 swaps.
+Optimal train swapping takes 441 swaps.
+Optimal train swapping takes 49 swaps.
+Optimal train swapping takes 72 swaps.
+Optimal train swapping takes 159 swaps.
+Optimal train swapping takes 601 swaps.
+Optimal train swapping takes 18 swaps.
+Optimal train swapping takes 103 swaps.
+Optimal train swapping takes 124 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 38 swaps.
+Optimal train swapping takes 576 swaps.
+Optimal train swapping takes 320 swaps.
+Optimal train swapping takes 254 swaps.
+Optimal train swapping takes 414 swaps.
+Optimal train swapping takes 580 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 393 swaps.
+Optimal train swapping takes 460 swaps.
+Optimal train swapping takes 135 swaps.
+Optimal train swapping takes 12 swaps.
+Optimal train swapping takes 9 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 91 swaps.
+Optimal train swapping takes 7 swaps.
+Optimal train swapping takes 0 swaps.
+Optimal train swapping takes 450 swaps.
+Optimal train swapping takes 497 swaps.
+Optimal train swapping takes 303 swaps.
+Optimal train swapping takes 477 swaps.
+Optimal train swapping takes 196 swaps.
+Optimal train swapping takes 289 swaps.
+Optimal train swapping takes 284 swaps.
+Optimal train swapping takes 432 swaps.
+Optimal train swapping takes 316 swaps.
+Optimal train swapping takes 69 swaps.
+Optimal train swapping takes 13 swaps.
+Optimal train swapping takes 119 swaps.
+Optimal train swapping takes 12 swaps.
+Optimal train swapping takes 1 swaps.
+Optimal train swapping takes 137 swaps.
+Optimal train swapping takes 347 swaps.
+Optimal train swapping takes 7 swaps.
+Optimal train swapping takes 33 swaps.
+Optimal train swapping takes 10 swaps.
+Optimal train swapping takes 43 swaps.
+Optimal train swapping takes 131 swaps.
+Optimal train swapping takes 52 swaps.
+Optimal train swapping takes 331 swaps.
+Optimal train swapping takes 31 swaps.
