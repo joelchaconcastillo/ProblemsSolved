@@ -8,33 +8,18 @@ int main()
   for(int i = 0; i < n; i++)
   {
      scanf("%d\n", &t);
+     int mod ;	
      bool f=true;
-     int minv = INT_MAX, maxv = INT_MIN;
      for(int j = 0; j < t; j++)
      {
 	int a;
- 	scanf("%d ", &data[j]);
-	maxv = max(maxv, data[j]);
+ 	scanf("%d ", &a);
+	if(j==0) mod = a%2;
+	else
+	 if( (a%2) != mod) f=false;
      }	
-     while( true)
-     {
-        for(int j = 0; j < t; j++)
-	{
-	 if(data[j] < maxv) data[j] +=2;
-	}
-        minv = INT_MAX, maxv = INT_MIN;
-	for(int j = 0; j < t; j++)
-	{
-	  if(data[j] > 0) data[j]--;
-	  maxv = max(maxv, data[j]);
-	  minv = min(minv, data[j]);
-	}
-	int diff = maxv-minv;
-	if( maxv <= 2) break;
-     }
-	int sum = 0;	
-	for(int j = 0; j < t; j++) sum+=data[j];//cout << data[j]<< " ";cout <<endl;
-      if(t == 1 || sum == 2*t) printf("YES\n");
+     
+      if(f) printf("YES\n");
 	else printf("NO\n");
   }
   return 0;
