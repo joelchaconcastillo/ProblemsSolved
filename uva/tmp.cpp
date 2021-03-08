@@ -1,134 +1,169 @@
-#include <cstdio>
-#include <vector>
-#include <utility>
-#include <bitset>
-#include <queue>
+#include <iostream>
 #include <algorithm>
-#include <cstring>
+#include <cmath>
 using namespace std;
 
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
+/**
+    Using cross products would be much simplier to solve this problem. In this solution,
+    I practiced geometry basics without cross products.
+    There is a bug in UVA's official answer (http://www.uvatoolkit.com/problemssolve.php).
+    This case should output "T" (since the line segment intersects with the rectangle at (-1, -3))
+    , but the official answer output "F":
+    2 -5 -10 3 -1 0 2 -3
+*/
 
-#define INF 1e9
-#define MAX_V 38
+static const double EPS = 1e-9;
 
-int res[MAX_V][MAX_V], mf, f, s, t;
-vector<vi> AdjList;
-vi p;
+/** Model a point. */
+struct Point { double x, y; };
 
-int total, n;
-char app, pc;
-bool fin = false;
+/** Model a linear equation ax + by + c = 0. 
+    a is the slope. 
+    b = 0 if it is a vertical line; otherwise b = 1.
+*/
+struct Line { double a, b, c; };
 
-void augment(int v, int minEdge) {
-	if (v == s) {
-		f = minEdge;
-		return;
-	} else if (p[v] != -1) {
-		augment(p[v], min(minEdge, res[p[v]][v]));
-		res[p[v]][v] -= f;
-		res[v][p[v]] += f;
-	}
+/** Given p1 and p2, compute the linear equation and store it in l. */ 
+void pointsToLine(Point p1, Point p2, Line &l) 
+{
+    // l is a vertial line.
+    if (p1.x == p2.x)
+    {
+        l.a = 1.0;
+        l.b = 0;
+        l.c = -p1.x;
+    }
+    else 
+    {
+        l.a = -(p1.y - p2.y) / (p1.x - p2.x);
+        l.b = 1.0;
+        l.c = -(l.a * p1.x) - p1.y;
+    }
 }
 
-void readInputAndSetup() {
-	total = 0;
-	memset(res, 0, sizeof res);
-	AdjList.assign(MAX_V, vi());
-	s = 0;
-	t = MAX_V - 1;
-	for (int i = 27; i < MAX_V - 1; i++) {
-		res[i][t] = 1;
-		AdjList[i].push_back(t);
-		AdjList[t].push_back(i);
-	}
-	while (true) {
-		if (scanf("%c", &app) == EOF) {
-			fin = true;
-			break;
-		}
-		if (app == '\n')
-			break;
-		scanf("%d ", &n);
-		res[0][app - 'A' + 1] = n;
-		AdjList[0].push_back(app - 'A' + 1);
-		AdjList[app - 'A' + 1].push_back(0);
-		total += n;
-
-		while (true) {
-			scanf("%c", &pc);
-			if (pc == ';') {
-				scanf("%c", &pc);
-				break;
-			}
-			res[app - 'A' + 1][pc - '0' + 27] = 1;
-			AdjList[app - 'A' + 1].push_back(pc - '0' + 27);
-			AdjList[pc - '0' + 27].push_back(app - 'A' + 1);
-		}
-	}
+bool areSame(Line l1, Line l2)
+{
+    return (fabs(l1.a - l2.a) < EPS 
+            && fabs(l1.b - l2.b) < EPS
+            && fabs(l1.c - l2.c) < EPS);
 }
 
-void EdmondKarps() {
-	mf = 0;
-	while (1) {
-		f = 0;
-		bitset<MAX_V> visited;
-		visited.set(s);
-		queue<int> q;
-		q.push(s);
-		p.assign(MAX_V, -1);
-		while (!q.empty()) {
-			int u = q.front();
-			q.pop();
-			if (u == t)
-				break;
-			for (int i = 0; i < (int) AdjList[u].size(); i++) {
-				int v = AdjList[u][i];
-				if (res[u][v] > 0 && !visited.test(v)) {
-					visited.set(v);
-					q.push(v);
-					p[v] = u;
-				}
-			}
-		}
-		augment(t, INF);
-		if (f == 0)
-			break;
-		mf += f;
-	}
+/** If l1 and l2 are not parallel, return true and store their intersected 
+    point in p; otherwise return false. */
+bool areIntersected(Line l1, Line l2, Point &p) {
+
+    // If l1 and l2 are parallel, return false.
+    if (fabs(l1.a - l2.a) < EPS 
+        && fabs(l1.b - l2.b) < EPS)
+        return false;
+
+    // Solve the system of two linear algebraic equations.
+    p.x = (l2.b * l1.c - l1.b * l2.c) / (l2.a * l1.b - l1.a * l2.b);
+
+    if (fabs(l1.b) > EPS)
+        p.y = -(l1.a * p.x + l1.c);
+    else
+        p.y = -(l2.a * p.x + l2.c);
+
+    return true;
 }
 
-void output() {
-	if (total != mf) {
-		printf("!\n");
-	} else {
-		for (int i = 27; i < 37; i++) {
-			bool alloc = false;
-			for (int j = 1; j <= 26; j++) {
-				if (res[i][j]) {
-					printf("%c", j + 'A' - 1);
-					alloc = true;
-					break;
-				}
-			}
-			if (!alloc)
-				printf("_");
-		}
-		printf("\n");
-	}
+/** Return the Euclidean distance between p1 and p2. */
+double dist(Point p1, Point p2)
+{
+    return sqrt((p1.x - p2.x) * (p1.x - p2.x) 
+                 + (p1.y - p2.y) * (p1.y - p2.y));
 }
 
-int main() {
-	while (true) {
-		readInputAndSetup();
-		EdmondKarps();
-		output();
+/** Given p1, p2 and p3 are collinear, is p3 on the segment formed between p1 and p2? */
+bool isOnSegment(Point p1, Point p2, Point p3)
+{
+    if (dist(p1, p3) - EPS <= dist(p1, p2)
+        && dist(p2, p3) - EPS <= dist(p1, p2))
+        return true;
 
-		if (fin)
-			break;
-	}
+    return false;
+}
 
-	return 0;
+/** Is p3 inside the rectangle formed by left-top p1 and right-bottom p2? */
+bool isInsideRectangle(Point p1, Point p2, Point p3)
+{
+    if (p3.x <= max(p1.x, p2.x)
+        && p3.x >= min(p1.x, p2.x)
+        && p3.y <= max(p1.y, p2.y)
+        && p3.y >= min(p1.y, p2.y))
+        return true;
+
+    return false;
+}
+
+int main()
+{    
+    int n;
+    cin >> n;
+
+    while ( n-- )
+    {
+        Point line[2];
+        Point rectangle[4];
+
+        cin >> line[0].x >> line[0].y 
+            >> line[1].x >> line[1].y;
+        cin >> rectangle[0].x >> rectangle[0].y 
+            >> rectangle[2].x >> rectangle[2].y;
+
+        // Is line[0] or line[1] inside the rectangle?
+        if (isInsideRectangle(rectangle[0], rectangle[2], line[0])
+            || isInsideRectangle(rectangle[0], rectangle[2], line[1]))
+        {
+            cout << "T" << endl;
+            continue;
+        }
+        
+        // Now check intersections.
+        rectangle[1] = rectangle[0];
+        rectangle[3] = rectangle[2];
+        swap(rectangle[1].y, rectangle[3].y);
+
+        Line lineSegment;
+        pointsToLine(line[0], line[1], lineSegment);
+        bool intersect = false;
+        // Loop over every edge of the rectangle.
+        for (int i = 0; i < 4; ++i) 
+        {
+            // Compute the equation of this edge.
+            Line rectangleEdge;
+            pointsToLine(rectangle[i], rectangle[(i + 1) % 4], rectangleEdge);
+
+            // If the equations are the same, check if the two segments overlap.
+            if (areSame(lineSegment, rectangleEdge))
+            {
+                if (isOnSegment(line[0], line[1], rectangle[i])
+                    || isOnSegment(line[0], line[1], rectangle[(i + 1) % 4]))
+                {
+                    intersect = true;
+                    break;
+                }
+                continue;
+            }
+
+            // Otherwise, check if they intersect and the intersection is inside both segments.
+            Point p;
+            if (areIntersected(lineSegment, rectangleEdge, p)) 
+            {
+                if (isOnSegment(line[0], line[1], p)
+                    && isOnSegment(rectangle[i], rectangle[(i + 1) % 4], p))
+                {
+                    intersect = true;
+                    break;
+                }
+            }
+        }
+
+        if (intersect)
+            cout << "T" << endl;
+        else
+            cout << "F" << endl;
+    }
+    return 0;
 }
