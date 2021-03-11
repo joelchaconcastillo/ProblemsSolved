@@ -19,8 +19,9 @@ int main()
   randominit2(sol);
 //  initA(sol);
   cerr<< sol.f<< " " <<eval1(sol.x)<<endl;
- // //localsearchbyGroups(sol, 60*10);
-  localsearchbyPaths(sol, 60*10);
+ // //localsearchbyGroups(sol, 60*60*5);
+  localsearchbyPaths(sol, 60*60*8);
+ // localsearchbyPaths(sol, 20);
  // //localsearch(sol, 60);
   cerr<< sol.f<< " " <<eval1(sol.x)<<endl;
   write(sol.x);

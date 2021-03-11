@@ -65,18 +65,17 @@ void expandTime(vvpd &sol, int i)
 	while(sol.x[i][stLight.first].second == 0 && cnt < size)stLight.first++, cnt++, stLight.first%=size;
 	if( cnt == size) { sol.offlight[i]=true; break;}
 	 sol.L[i][j]=inStreet[i][sol.x[i][stLight.first].first];
-	 sol.item[i][j]=stLight.first;
+//	 sol.item[i][j]=stLight.first;
          stLight.second++;
 	 if( stLight.second >= sol.x[i][stLight.first].second)
 	    stLight.second=0, stLight.first++, stLight.first %= size;
       }
-
 }
 void randominit2(vvpd &sol)
 {
-    sol.x.resize(I);
-    sol.L.resize(I, vector<int>(D+1,0));
-    sol.offlight.resize(I, false);
+    sol.x.assign(I,vector<pair<int,int>>());
+    sol.L.assign(I, vector<int>(D+1,0));
+    sol.offlight.assign(I, false);
     sol.fGroup.assign(Groups.size(), 0);
     for(int i = 0; i < I; i++)
     {
@@ -86,7 +85,7 @@ void randominit2(vvpd &sol)
 	//sol[i].push_back(make_pair(j, rand()%D+1));
       }
       random_shuffle(sol.x[i].begin(), sol.x[i].end());
-      expandTime(sol, i);
+     expandTime(sol, i);
     }
     eval2(sol);
     int sum = 0;
@@ -182,7 +181,7 @@ void localsearchB(vvpd &sol, int maxite, int totaltime, int idGroup)
      {
 	sol.f += -sol.fGroup[idGroup]+current.fGroup[idGroup], sol.x[node]=current.x[node], sol.L[node]=current.L[node], sol.fGroup[idGroup] = current.fGroup[idGroup];
      	cerr<< "Improved LSB: "<<maxite<<" score: "<<sol.f<< " " << duration1.count() <<endl;
-	maxite +=100;
+	maxite +=500;
      }
      else current.f = sol.f, current.x[node] = sol.x[node], current.L[node]=sol.L[node], current.fGroup[idGroup]=sol.fGroup[idGroup];
      duration1 = duration_cast<seconds>(high_resolution_clock::now() - start); 
@@ -196,7 +195,7 @@ void localsearchA(vvpd &sol, int maxite, int totaltime, vector<int> &nodes)
   {
      int node = nodes[rand()%nodes.size()];
      int item = rand()%sol.x[node].size();
-     int i =rand()%50;
+     int i =rand()%15;
      current.x[node][item].second = i;
      expandTime(current, node);
      eval2(current);
@@ -204,7 +203,7 @@ void localsearchA(vvpd &sol, int maxite, int totaltime, vector<int> &nodes)
      { 
 	sol.f = current.f, sol.x[node]=current.x[node], sol.L[node]=current.L[node];
      	cerr<< "Improved LSA: "<<maxite<< "t: "<<i<< " score: "<<sol.f<<" " << duration1.count() << endl;
-	maxite +=100;
+	maxite +=10;
      }
      else current.f = sol.f, current.x[node] = sol.x[node], current.L[node]=sol.L[node];
      duration1 = duration_cast<seconds>(high_resolution_clock::now() - start); 
@@ -265,8 +264,8 @@ void localsearchbyPaths(vvpd &sol, int totaltime)
 	{
 //		if(idx.first <10)continue;
 	  cerr<<idx.first<< ":" <<idx.second<<endl;
-          localsearchB(sol, 50, totaltime, nodesbyPath[idx.second]);
-          //localsearchA(sol, 10, totaltime, nodesbyPath[idx.second]);
+          localsearchB(sol, 100, totaltime, nodesbyPath[idx.second]);
+          localsearchA(sol, 10, totaltime, nodesbyPath[idx.second]);
           duration1 = duration_cast<seconds>(high_resolution_clock::now() - start); 
 	  cerr << sol.f<<endl;
 	}
