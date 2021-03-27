@@ -26,6 +26,8 @@ int main()
      for(int i = 1 ; i <=N; i++) d[i-1]=i;
      do
      {
+cout << "cost.."<< cost()<<endl;
+     for(int i = 0; i <N;i++)cout << d[i]<<" ";cout <<endl;
         if(cost() == C)found=true;
 	if(found)break;
      }while(next_permutation(d, d+N));
